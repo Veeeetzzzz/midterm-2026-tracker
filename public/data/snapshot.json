@@ -1,0 +1,72 @@
+{
+  "edition": "Election eve",
+  "asOf": "2026-11-02T19:14:00Z",
+  "electionDate": "2026-11-03",
+  "headline": "The published forecasts show a larger House majority than in September; Senate control is more sensitive to a small group of close races.",
+  "forecasts": {
+    "source": "Decision Desk HQ",
+    "sourceUrl": "https://votes.decisiondeskhq.com/forecast/2026",
+    "updated": "2026-11-02",
+    "house": {"demChance": 84, "demSeats": 241, "repSeats": 194},
+    "senate": {"demChance": 65, "demSeats": 52, "repSeats": 48},
+    "both": {"demSweep": 63, "demHouseRepSenate": 21, "repSweep": 15, "repHouseDemSenate": 2}
+  },
+  "polling": {
+    "genericBallot": {"source": "Silver Bulletin", "sourceUrl": "https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls", "updated": "2026-10-30", "marginD": 8.9, "lvAdjustedD": 9.1, "note": "National congressional vote average; not a district-by-district forecast."},
+    "houseRatings": {"source": "Cook Political Report", "sourceUrl": "https://www.cookpolitical.com/ratings/house-race-ratings", "updated": "2026-10-30", "dem": 222, "toss": 18, "rep": 195},
+    "statePolls": [
+      {"state":"North Carolina", "race":"Cooper / Whatley", "dem":55, "rep":44, "independent":false, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"},
+      {"state":"Maine", "race":"Jackson / Collins", "dem":52, "rep":47, "independent":false, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"},
+      {"state":"Michigan", "race":"El-Sayed / Rogers", "dem":51, "rep":47, "independent":false, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"},
+      {"state":"Texas", "race":"Talarico / Paxton", "dem":51, "rep":47, "independent":false, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"},
+      {"state":"Ohio", "race":"Brown / Husted", "dem":50, "rep":48, "independent":false, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"},
+      {"state":"Kansas", "race":"Hamilton / Marshall", "dem":50, "rep":49, "independent":false, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"},
+      {"state":"Iowa", "race":"Turek / Hinson", "dem":50, "rep":49, "independent":false, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"},
+      {"state":"Nebraska", "race":"Osborn (I) / Ricketts", "dem":49, "rep":49, "independent":true, "pollster":"YouGov", "dates":"26–29 Oct", "population":"Likely voters", "sourceUrl":"https://today.yougov.com/politics"}
+    ]
+  },
+  "battlegrounds": {
+    "senate": [
+      {"id":"IA", "name":"Iowa", "rating":"Toss-up", "demChance":53, "status":"R-held", "detail":"Turek vs Hinson", "risk":"Pivot race"},
+      {"id":"KS", "name":"Kansas", "rating":"Toss-up", "demChance":51, "status":"R-held", "detail":"Hamilton vs Marshall", "risk":"Close"},
+      {"id":"OH", "name":"Ohio", "rating":"Toss-up", "demChance":54, "status":"R-held", "detail":"Brown vs Husted", "risk":"Close"},
+      {"id":"AK", "name":"Alaska", "rating":"Lean D", "demChance":61, "status":"R-held", "detail":"Peltola vs Sullivan", "risk":"Ranked-choice"},
+      {"id":"TX", "name":"Texas", "rating":"Lean D", "demChance":62, "status":"R-held", "detail":"Talarico vs Paxton", "risk":"High spending"},
+      {"id":"ME", "name":"Maine", "rating":"Lean D", "demChance":65, "status":"R-held", "detail":"Jackson vs Collins", "risk":"Ranked-choice"},
+      {"id":"MI", "name":"Michigan", "rating":"Likely D", "demChance":75, "status":"D-held", "detail":"El-Sayed vs Rogers", "risk":"Defence"},
+      {"id":"NC", "name":"North Carolina", "rating":"Likely D", "demChance":89, "status":"R-held", "detail":"Cooper vs Whatley", "risk":"Pickup target"}
+    ],
+    "house": [
+      {"id":"MI-07", "name":"Michigan 07", "rating":"Toss-up", "status":"R-held", "detail":"Barrett seat", "risk":"Competitive"},
+      {"id":"MI-10", "name":"Michigan 10", "rating":"Toss-up", "status":"R-held", "detail":"Open James seat", "risk":"Open seat"},
+      {"id":"NY-17", "name":"New York 17", "rating":"Toss-up", "status":"R-held", "detail":"Lawler seat", "risk":"Heavy spending"},
+      {"id":"PA-01", "name":"Pennsylvania 01", "rating":"Toss-up", "status":"R-held", "detail":"Fitzpatrick seat", "risk":"Competitive"},
+      {"id":"IA-02", "name":"Iowa 02", "rating":"Toss-up", "status":"R-held", "detail":"Open Hinson seat", "risk":"Open seat"},
+      {"id":"TX-15", "name":"Texas 15", "rating":"Toss-up", "status":"R-held", "detail":"De La Cruz seat", "risk":"Redistricting"},
+      {"id":"NC-01", "name":"North Carolina 01", "rating":"Toss-up", "status":"D-held", "detail":"Davis seat", "risk":"D defence"},
+      {"id":"FL-14", "name":"Florida 14", "rating":"Toss-up", "status":"D-held", "detail":"Castor seat", "risk":"New map"},
+      {"id":"CA-22", "name":"California 22", "rating":"Toss-up", "status":"R-held", "detail":"Valadao seat", "risk":"Competitive"}
+    ]
+  },
+  "referenceMarkets": {
+    "asOf":"2026-11-02T12:00:00Z",
+    "source":"Public market trackers — reference only",
+    "polymarket": {
+      "house":{"D":0.945,"R":0.055},
+      "senate":{"D":0.725,"R":0.275},
+      "balance":{"DD":0.715,"DR":0.225,"RR":0.055,"RD":0.007}
+    },
+    "kalshi": {
+      "house":{"D":0.94,"R":0.06},
+      "senate":{"D":0.73,"R":0.27},
+      "balance":{"DD":0.70,"DR":0.26,"RR":0.056,"RD":0.007}
+    }
+  },
+  "sources": [
+    {"name":"DDHQ forecast", "url":"https://votes.decisiondeskhq.com/forecast/2026", "type":"Forecast"},
+    {"name":"Silver Bulletin", "url":"https://www.natesilver.net/p/generic-ballot-average-2026-nate-silver-bulletin-congress-polls", "type":"Polling"},
+    {"name":"Cook race ratings", "url":"https://www.cookpolitical.com/ratings/house-race-ratings", "type":"Ratings"},
+    {"name":"Polymarket control markets", "url":"https://polymarket.com/event/balance-of-power-2026-midterms", "type":"Market"},
+    {"name":"Kalshi control markets", "url":"https://kalshi.com/markets/kxbalancepowercombo/2026-midterms-congress-balance-of-power", "type":"Market"}
+  ]
+}

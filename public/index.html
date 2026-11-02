@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#0b1019" />
+<title>Midterm Signal · US 2026 Election Monitor</title>
+<meta name="description" content="Source-labelled US 2026 midterm forecast, polling and independent prediction market activity dashboard." />
+<link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="site-shell">
+<header class="topbar">
+  <a class="brand" href="#overview" aria-label="Midterm Signal home"><span class="brand-mark"><span></span><span></span><span></span></span><span><strong>MIDTERM<span class="brand-accent">SIGNAL</span></strong><small>2026 · US CONGRESSIONAL MONITOR</small></span></a>
+  <div class="topbar-right"><span class="live-pill"><i></i> ELECTION EVE</span><div class="top-clock"><span class="clock-label">LONDON / GMT</span><strong id="londonTime">--:--:--</strong></div><button type="button" class="refresh-btn" id="refreshButton"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9a7 7 0 0 1 12-3l3 6M4 12l3 6a7 7 0 0 0 12-3"/></svg><span id="refreshLabel">Refresh sources</span></button></div>
+</header>
+<div class="navframe"><nav class="main-nav" aria-label="Dashboard views"><button class="nav-btn active" data-view="overview">Overview</button><button class="nav-btn" data-view="polls">Polls & forecasts</button><button class="nav-btn" data-view="markets">Market money flow</button><button class="nav-btn" data-view="battlegrounds">Battleground watchlist</button></nav><div class="status-row" id="statusLine"><span class="status-dot"></span><span>Loading source data…</span></div></div>
+<main id="main">
+<section class="hero"><div><div class="eyebrow"><span class="eyebrow-line"></span> 03 NOVEMBER 2026 · GENERAL ELECTION</div><h1>Election <em>intelligence.</em><br/>Not just a headline.</h1><p>Published forecasts, actual polling and real-money market activity — labelled separately, with the sources and the timestamps they deserve.</p></div><div class="countdown-panel"><div class="overline">ELECTION DAY</div><div class="countdown-number" id="countdown">—</div><div class="countdown-unit" id="countdownUnit">Days remaining</div><div class="countdown-divider"></div><div class="countdown-description">Results start arriving overnight into Wednesday 4 November, UK time.</div></div></section>
+<div id="alert" class="alert hidden" role="status" aria-live="polite"></div>
+<section data-panel="overview" class="view-panel active" aria-label="Overview">
+  <div class="section-title"><div><span class="kicker">01 / ELECTION CONTROL</span><h2>Where the models stand</h2></div><div class="source-label" id="forecastDate">Forecast snapshot · —</div></div>
+  <div class="kpi-grid">
+    <article class="kpi-card"><div class="kpi-top"><span>HOUSE / D CONTROL</span><span class="model-chip">DDHQ MODEL</span></div><div class="kpi-number"><span id="housePct">—</span><small>%</small></div><div class="probability-bar"><i class="d-bar" id="houseBar" style="width:0"></i></div><div class="kpi-bottom"><span>Projected seats</span><b id="houseSeats">—</b></div></article>
+    <article class="kpi-card"><div class="kpi-top"><span>SENATE / D CONTROL</span><span class="model-chip">DDHQ MODEL</span></div><div class="kpi-number"><span id="senatePct">—</span><small>%</small></div><div class="probability-bar"><i class="d-bar" id="senateBar" style="width:0"></i></div><div class="kpi-bottom"><span>Projected seats</span><b id="senateSeats">—</b></div></article>
+    <article class="kpi-card featured"><div class="kpi-top"><span>HOUSE + SENATE / D·D</span><span class="model-chip dark">JOINT FORECAST</span></div><div class="kpi-number"><span id="bothPct">—</span><small>%</small></div><div class="probability-bar"><i class="d-bar" id="bothBar" style="width:0"></i></div><div class="kpi-bottom"><span>Joint outcome probability</span><b>DDHQ</b></div></article>
+  </div>
+  <div class="overview-grid">
+    <article class="panel"><div class="panel-top"><div><span class="kicker">02 / THE NATIONAL CLIMATE</span><h3>Generic congressional ballot</h3></div><span class="source-label" id="ballotDate">Silver Bulletin · —</span></div><div class="ballot-big"><strong id="ballotMargin">D +—</strong><span>percentage-point margin</span></div><div class="ballot-sub" id="ballotLv">Likely-voter adjustment: —</div><p class="small-detail">This is a national polling average, not a seat forecast. <a id="silverLink" href="https://www.natesilver.net/" target="_blank" rel="noopener noreferrer">Open source ↗</a></p></article>
+    <article class="panel"><div class="panel-top"><div><span class="kicker">03 / HOUSE MAP</span><h3>Cook race ratings</h3></div><span class="source-label" id="cookDate">Cook · —</span></div><div class="map-summary"><div class="map-number"><strong id="ratedD">—</strong><span>D-rated</span></div><div class="map-number"><strong id="ratedToss">—</strong><span>Toss-ups</span></div><div class="map-number"><strong id="ratedR">—</strong><span>R-rated</span></div></div><div class="seatbar" aria-label="House rating composition"><i class="seatblue" id="ratingD"></i><i class="seatgrey" id="ratingT"></i><i class="seatred" id="ratingR"></i></div><p class="small-detail">218 seats needed for a majority. Ratings are not declared results. <a id="cookLink" href="https://www.cookpolitical.com/" target="_blank" rel="noopener noreferrer">Cook ratings ↗</a></p></article>
+  </div>
+  <div class="section-title after-section"><div><span class="kicker">04 / MARKET CROSS-CHECK</span><h2>Model versus market</h2></div><a class="section-link" href="#markets" data-go="markets">Inspect money flow ↗</a></div>
+  <div class="table-frame"><table class="comparison"><thead><tr><th>Source</th><th>House · D</th><th>Senate · D</th><th>D / D</th><th>Data type</th></tr></thead><tbody id="comparisonRows"><tr><td colspan="5">Loading…</td></tr></tbody></table><div class="table-footer" id="marketComparisonNote">Market prices are not statistical forecasts and may not add to exactly 100%.</div></div>
+  <article class="insight-panel"><div class="insight-emblem">i</div><div><strong>Reading the dashboard</strong><p id="headlineInsight">Model forecasts and market quotes are different measurements. A bigger volume figure measures trading activity, not necessarily buying pressure for Democrats or Republicans.</p></div></article>
+</section>
+<section data-panel="polls" class="view-panel" aria-label="Polls and forecasts">
+  <div class="section-title"><div><span class="kicker">01 / POLLING & FORECASTS</span><h2>Votes, samples and model inputs</h2></div><span class="source-label">Published-source snapshot</span></div>
+  <div class="poll-grid"><article class="panel"><span class="kicker">SILVER BULLETIN · NATIONAL</span><div class="ballot-big"><strong id="pollsGeneric">—</strong><span>Generic House ballot</span></div><div class="ballot-sub" id="pollsGenericLV">—</div><p class="small-detail">Current value only changes when the source snapshot is updated; the refresh button checks the published JSON again.</p></article><article class="panel"><span class="kicker">DDHQ · CHAMBER PROJECTIONS</span><div class="seat-comparison"><div><span>House</span><strong id="pollsHouseSeats">—</strong><small id="pollsHouseChance">—</small></div><div><span>Senate</span><strong id="pollsSenateSeats">—</strong><small id="pollsSenateChance">—</small></div></div><p class="small-detail">Seat projections are forecasts, not poll percentages or counted votes.</p></article></div>
+  <div class="section-title after-section"><div><span class="kicker">LATEST STATE SURVEYS</span><h2>Senate poll board</h2></div><span class="source-label">YouGov · 26–29 Oct · likely voters</span></div>
+  <div id="pollCards" class="pollcards"></div>
+  <div class="panel note-block"><strong>Poll data refresh policy</strong><p>Public APIs are available for exchange prices, but these forecasting and polling sources do not provide a stable, unauthenticated data feed here. The site reads the current <code>data/snapshot.json</code> on each refresh. Edit that file and redeploy to publish a new verified poll/forecast snapshot. It will never claim a cached poll is fresh simply because the refresh button was clicked.</p></div>
+</section>
+<section data-panel="markets" class="view-panel" aria-label="Independent markets and money flow">
+  <div class="section-title"><div><span class="kicker">01 / PREDICTION MARKETS</span><h2>Prices & money flow</h2></div><div class="market-source-status"><span class="status-dot" id="marketDot"></span><span id="marketStatus">Checking market feeds…</span></div></div>
+  <div class="panel market-explain"><div class="market-explain-icon">$</div><div><strong>What “money flow” means here</strong><p>Track quoted odds, trailing 24-hour trading volume, cumulative traded volume and quoted liquidity. Volume counts activity on both sides of trades — it is <b>not</b> net money placed on Democrats. Kalshi reports traded <b>contracts</b>, while Polymarket reports approximate <b>USD volume</b>; these are not directly comparable.</p></div></div>
+  <div class="section-title after-section tight"><div><span class="kicker">SOURCE / POLYMARKET</span><h3>US congressional control markets</h3></div><a href="https://polymarket.com/midterms" target="_blank" rel="noopener noreferrer" class="section-link">View exchange ↗</a></div>
+  <div id="polyMarketRows" class="market-grid"></div>
+  <div class="section-title after-section tight"><div><span class="kicker">SOURCE / KALSHI</span><h3>Independent market cross-check</h3></div><a href="https://kalshi.com/markets/kxbalancepowercombo/2026-midterms-congress-balance-of-power" target="_blank" rel="noopener noreferrer" class="section-link">View exchange ↗</a></div>
+  <div id="kalshiMarketRows" class="market-grid"></div>
+  <div class="section-title after-section tight"><div><span class="kicker">COMBINED HOUSE / SENATE OUTCOMES</span><h3>Four-way outcome pricing</h3></div></div>
+  <div class="table-frame"><table class="comparison"><thead><tr><th>Outcome</th><th>Polymarket</th><th>Kalshi</th><th>DDHQ model</th></tr></thead><tbody id="outcomeRows"></tbody></table><div class="table-footer">Prices may not sum to 100% due to bids, asks and market structure. Contract terms differ across providers; read both settlement rules before comparing prices.</div></div>
+  <div class="panel note-block"><strong>Source health</strong><p id="apiHealth">Loading…</p><p class="small-detail">Markets use public APIs through the included Netlify Function. If your site is deployed as static HTML without the function, historical reference prices are displayed and clearly labelled. Click Refresh sources to try again.</p></div>
+</section>
+<section data-panel="battlegrounds" class="view-panel" aria-label="Battleground watchlist">
+  <div class="section-title"><div><span class="kicker">01 / BATTLEGROUND WATCHLIST</span><h2>Where control could turn</h2></div><span class="source-label">Curated forecast snapshot</span></div>
+  <div class="filterbar"><div class="toggle-group" role="group" aria-label="Chamber"><button type="button" id="senateToggle" class="toggle active" data-chamber="senate">Senate</button><button type="button" id="houseToggle" class="toggle" data-chamber="house">House</button></div><div class="search-wrap"><span>⌕</span><label class="sr-only" for="raceSearch">Search races</label><input id="raceSearch" type="search" placeholder="Search state or district…" /></div></div>
+  <div id="battlegroundRows" class="race-list"></div>
+  <div class="panel note-block"><strong>How to use the watchlist</strong><p>Senate Democrats need 51 aligned seats if a 50–50 Senate is controlled by a Republican vice president. House control requires 218 voting seats. Individual race percentages, where shown, are from the dated DDHQ snapshot and are not guarantees or real-time election calls.</p></div>
+</section>
+</main>
+<footer class="footer"><div><strong>MIDTERM<span class="brand-accent">SIGNAL</span></strong><p>Public-source informational dashboard · 2026 US congressional elections</p></div><div class="footer-links" id="footerSources"><a href="https://votes.decisiondeskhq.com/forecast/2026" target="_blank" rel="noopener noreferrer">DDHQ ↗</a><a href="https://polymarket.com/midterms" target="_blank" rel="noopener noreferrer">Polymarket ↗</a><a href="https://kalshi.com" target="_blank" rel="noopener noreferrer">Kalshi ↗</a></div><p class="disclaimer">Polling and forecasts are sourced and dated, while exchange odds are market prices. Not an official election result feed, betting service, or financial advice. No automatic trading or betting features.</p></footer>
+</div>
+<script src="/assets/app.js" defer></script>
+</body>
+</html>
